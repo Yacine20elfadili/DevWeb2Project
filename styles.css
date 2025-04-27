@@ -1,3 +1,13 @@
+:root {
+  --bg-dark1: rgb(34, 34, 34);
+  --bg-dark2: rgb(50, 58, 94);
+  --text-dark: rgb(202, 200, 200);
+  
+  --bg-light1: rgb(245, 247, 250);
+  --bg-light2: rgb(46, 67, 107);
+  --text-light: rgb(27, 27, 27);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,12 +17,12 @@
 }
 
 body {
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
-  color: #333;
+  background: linear-gradient(135deg, var(--bg-light1) 10%, var(--bg-light2) 100%);
+  color: var(--text-light);
   min-height: 100vh;
 }
 
-
+/* Navigation Bar */
 nav {
   background: linear-gradient(90deg, #003366 0%, #004d99 100%);
   padding: 1.2rem;
@@ -25,21 +35,22 @@ nav {
 nav ul {
   display: flex;
   justify-content: center;
+  align-items: center;
   list-style: none;
+  gap: 2rem;
 }
 
 nav ul li {
-  margin: 0 1.5rem;
   position: relative;
 }
-
 
 nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 0.5px;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  display: inline-block;
   position: relative;
 }
 
@@ -48,7 +59,7 @@ nav ul li a::after {
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: -2px;
+  bottom: 0;
   left: 0;
   background-color: #ffcc00;
   transition: width 0.3s ease;
@@ -61,6 +72,25 @@ nav ul li a:hover {
 nav ul li a:hover::after {
   width: 100%;
 }
+
+/* Dark Mode Button */
+#darkMode {
+  padding: 0.5rem 1rem;
+  margin-left: 200px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+#darkMode:hover {
+  background: linear-gradient(90deg, #002244 0%, #003366 100%);
+  color: #ffcc00;
+  transform: scale(1.05);
+}
+
+
 
 .section {
   padding: 3rem 2rem;
@@ -141,7 +171,6 @@ nav ul li a:hover::after {
 }
 
 h1 {
-  color: #003366;
   margin-bottom: 1.5rem;
   font-size: 2.8rem;
   font-weight: 700;
@@ -161,7 +190,6 @@ h1 {
 }
 
 h2 {
-  color: #004d99;
   margin-bottom: 2rem;
   font-size: 2rem;
   animation: slideUp 1s ease 0.2s backwards;
@@ -185,7 +213,6 @@ p {
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
-  color: #555;
 }
 
 
@@ -440,7 +467,7 @@ input[type="file"] {
   border-radius: 4px;
 }
 
-.screenshot-btn {
+.downloadBtn {
   width: 100%;
   margin-top: 1rem;
   background: linear-gradient(90deg, #28a745 0%, #218838 100%);
@@ -448,36 +475,68 @@ input[type="file"] {
 
 
 
-.screenshot-btn:hover {
+.downloadBtn:hover {
   background: linear-gradient(90deg, #218838 0%, #1e7e34 100%);
   animation: none;
 }
 
 
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem;
+  nav {
+    padding: 10px 0;
   }
-  
-  h2 {
-    font-size: 1.8rem;
-  }
-  
-  .main-content {
+
+  nav ul {
     flex-direction: column;
     align-items: center;
+    padding: 0;
+    margin: 0;
   }
-  
-  .photo-section {
-    margin-right: 0;
-    margin-bottom: 1.5rem;
+
+  nav ul li {
+    margin: 5px 0;
   }
-  
-  .info-section {
-    width: 100%;
+
+  nav ul li a, nav ul li button {
+    font-size: 16px;
+    padding: 5px 10px;
   }
-  
-  #about ul, #contact ul {
-    max-width: 100%;
+
+  #darkMode {
+    width: 30px;    /* small width */
+    height: 30px;   /* small height */
+    padding: 5px;   /* small inside padding */
+    margin: 0;
+  }
+
+  .section {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .student-card {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  .photo-section img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .info-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .info-label, .info-value {
+    font-size: 14px;
+  }
+
+  .downloadBtn {
+    width: 80%;
+    font-size: 16px;
+    padding: 10px;
   }
 }
