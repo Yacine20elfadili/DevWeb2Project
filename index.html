@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créer.CV - Générateur de Carte Étudiant</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- html2canvas pour screenshot -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+
+</head>
+
+<body>
+  <nav id="navigation">
+    <ul>
+      <li><a href="#welcome">Accueil</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="welcome" class="section welcomePage">
+    <h1>Bienvenue sur le Générateur de Carte Étudiant</h1>
+    <p>Générez votre carte d'étudiant rapidement et facilement.</p>
+    <button id="startBtn" class="button">Créer une Carte Étudiant</button>
+  </section>
+
+
+  <section id="about" class="section">
+    <h1>À propos de nous</h1>
+    <p>
+      Besoin d'une carte d'étudiant ? Notre Générateur de Carte Étudiant rend cela simple et rapide ! Créez votre carte
+      d'identification étudiante officielle en quelques clics.
+    </p>
+    <ul>
+      <li>Générez des cartes d'étudiant professionnelles conformes aux normes institutionnelles</li>
+      <li>Interface facile à utiliser - aucune compétence technique requise</li>
+      <li>Obtenez votre carte d'étudiant numérique en fichier image de haute qualité</li>
+    </ul>
+    <p>
+      Nous comprenons l'importance d'avoir une identification étudiante appropriée. Notre système vous assure d'obtenir
+      une
+      carte d'étudiant standardisée et professionnelle qui inclut toutes les informations nécessaires.
+    </p>
+    <p>Prêt à créer votre carte d'étudiant ? Commencez maintenant !</p>
+  </section>
+
+
+  <section id="contact" class="section">
+    <h1>Contactez-nous</h1>
+    <p>Besoin d'aide ? Contactez notre équipe de support :</p>
+    <ul>
+      <li><strong>Téléphone :</strong> +212 6 50 32 92 24</li>
+      <li><strong>Email :</strong> elfadiliyacine@gmail.com</li>
+      <li><strong>Site Web :</strong> <a href="https://yacine20elfadili.github.io/myPortfolio/"
+          target="_blank">yacine20elfadili.github.io/myPortfolio.com</a></li>
+      <li><strong>Administrateur :</strong> La faculté polydisciplinaire de Taroudant (FPT)</li>
+      <li><strong>Réalisé par :</strong> Mohamed Yacine Elfadili </li>
+    </ul>
+  </section>
+
+
+  </div>
+  <section id="formSection" class="section" style="display:none;">
+    <h2>Informations Étudiant</h2>
+    <form id="studentCardForm">
+      <div class="form-group">
+        <label for="firstName">Prénom:</label>
+        <input type="text" id="firstName" name="firstName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Nom:</label>
+        <input type="text" id="lastName" name="lastName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="field">Filière:</label>
+        <input type="text" id="field" name="field" required>
+      </div>
+
+      <div class="form-group">
+        <label for="cin">CIN:</label>
+        <input type="text" id="cin" name="cin" required>
+      </div>
+
+      <div class="form-group">
+        <label for="massar">Code Massar:</label>
+        <input type="text" id="massar" name="massar" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Téléphone:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="photo">Photo de profil:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+      </div>
+
+      <button type="submit" id="generateCard">Générer la Carte</button>
+    </form>
+  </section>
+  <section id="cardContainer" class="card-container" style="display:none;">
+    <div class="student-card">
+      <div class="header">
+        <div class="logo">UNIVERSITÉ FPT </div>
+        <div class="card-type">CARTE D'ÉTUDIANT</div>
+      </div>
+      <div class="main-content">
+        <div class="photo-section">
+          <img id="cardPhoto" src="" alt="Photo d'étudiant">
+        </div>
+        <div class="info-section">
+          <div class="info-group">
+            <div class="info-label">NOM :</div>
+            <div class="info-value" id="cardLastName"></div>
+          </div>
+          <div class="info-group">
+            <div class="info-label">PRÉNOM :</div>
+            <div class="info-value" id="cardFirstName"></div>
+          </div>
+          <div class="info-group">
+            <div class="info-label">FILIÈRE :</div>
+            <div class="info-value" id="cardField"></div>
+          </div>
+          <div class="info-group">
+            <div class="info-label">CIN :</div>
+            <div class="info-value" id="cardCIN"></div>
+          </div>
+          <div class="info-group">
+            <div class="info-label">CODE MASSAR :</div>
+            <div class="info-value" id="cardMassar"></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div id="cardEmail"></div>
+        <div id="cardPhone"></div>
+        <div class="valid-date">2024-2025</div>
+      </div>
+    </div>
+    <button class="screenshot-btn" id="downloadBtn">Télécharger votre Carte </button>
+  </section>
+  <script src="script.js"></script>
+</body>
+
+</html>
