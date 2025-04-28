@@ -69,7 +69,7 @@ downloadBtn.addEventListener("click", () => {
 const modeBtn = document.getElementById("darkMode");
 let mode = "Switch to Night";
 modeBtn.innerText = mode ;
-function toggleMode() {
+function toggleMode() { 
   if (mode === "Switch to Night") {
     document.body.style.background = "linear-gradient(135deg, var(--bg-dark1) 10%, var(--bg-dark2) 100%)";
     document.body.style.color = "var(--text-dark)";
